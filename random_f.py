@@ -35,7 +35,7 @@ def choose_word(num, inappropriates):
 
 
 def extract_inappropriate():
-    vocab_path = '/home/ryo/work/github/profinity_check_ja/inappropriate.txt'
+    vocab_path = '/home/ryo/work/github/profanity_check_ja/inappropriate.txt'
     vocabs = []
     with Path(vocab_path).open() as f:
         for i, line in enumerate(f):
@@ -74,7 +74,7 @@ def test_model(xs, ys, word2vec):
     model = get_model()
     model.fit(xs, ys)
 
-    for word in ["バカ", "天才", "チビ", "通常", "どじ", "まぬけ", "ゲイ", "パソコン", "りんご", "ペニス", "ボート", "小便", "大便", "ホームベース"]:
+    for word in ["バカ", "天才", "チビ", "通常", "どじ", "まぬけ", "パソコン", "りんご", "ペニス", "ボート", "小便", "大便", "ホームベース"]:
         v = word2vec.get_vector(word, norm=True).reshape(1, -1)
         print(f"{word} {model.predict_proba(v)}")
 
